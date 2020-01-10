@@ -19,6 +19,8 @@ export namespace Widget {
         height?: number;
     }
 
+    export type AllWidget = Widget.Button | Widget.Custom | Widget.Text | Widget.Image | Widget.Checkbox | Widget.Rect;
+
     export interface Button extends Base, DisplayComponent {
         type: WidgetType.button
     }
@@ -34,6 +36,8 @@ export namespace Widget {
     export interface CustomChildrenItem extends DisplayComponent{
         id: string | number,
         libId: string | number,
+        name?: string,
+        text?: string,
         style?: StyleSheet
     }
 
@@ -58,10 +62,17 @@ export namespace Widget {
         type: WidgetType.text,
         style?: Object
     }
+    export interface Rect extends Base, DisplayComponent {
+        type: WidgetType.rect,
+        width: number,
+        height: number,
+        radius?: number,
+        color: number
+    }
 }
 
 export enum WidgetType {
-    text = 'text',
+    text = 'Label',
     rect = 'Rect',
     image = 'Image',
     table = 'table',

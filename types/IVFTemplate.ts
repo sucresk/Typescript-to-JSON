@@ -13,9 +13,10 @@ export interface IVFTemplate {
     conversion: String,
     loadMode: LoadMode,
     version: String,
+    fps?: number,
     scaleMode: ScaleMode,
     components: {
-        [key: string]: Widget.Button | Widget.Custom | Widget.Text | Widget.Image | Widget.Checkbox
+        [key: string]: Widget.AllWidget
     }
 }
 
@@ -41,11 +42,11 @@ export namespace Assets {
 }
 
 export namespace Global {
-    export interface global {
+    export type global  = {
         type: string,
         value: any,
         describe?: string,
-    }
+    } | number | string | boolean | any
 }
 
 export namespace Scenes {
